@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Demo">
+    <listeners>
+        <listener class-name="com.automation.listener.ExtentListener"/>
+    </listeners>
+    <test name="Abc">
+        <classes>
+            <class name="com.automation.test.HomePageTest"/>
+
+        </classes>
+    </test>
+</suite>
