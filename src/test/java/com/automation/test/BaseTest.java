@@ -1,8 +1,6 @@
 package com.automation.test;
 
 
-import com.automation.pages.HomePage;
-
 import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
 
