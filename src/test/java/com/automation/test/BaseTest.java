@@ -19,7 +19,7 @@ import java.util.Random;
 public class BaseTest {
 
 
-    HomePage homePage;
+
 
 
 
@@ -30,7 +30,7 @@ public class BaseTest {
         ConfigReader.initConfig();
         DriverManager.createDriver();
 
-        homePage = new HomePage();
+
 
 
     }
