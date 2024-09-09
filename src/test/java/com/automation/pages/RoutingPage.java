@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,8 +48,8 @@ public class RoutingPage extends BasePage {
     @FindBy(xpath = "//div[@aria-live='polite']")
     WebElement changesSavedMsg;
 
-    @FindBy(xpath = "//div[@data-component='sticky-footer']//button/span[text()='Next']")
-    WebElement nextBtn;
+//    @FindBy(xpath = "//div[@data-component='sticky-footer']//button/span[text()='Next']")
+//    WebElement nextBtn;
 
     @FindBy(xpath = "//span[text()='Publish form']")
     WebElement publishFormBtn;
@@ -128,8 +129,11 @@ public class RoutingPage extends BasePage {
     }
 
     public void clickOnNextButton() {
-        waitUntilClickable(nextBtn);
-        nextBtn.click();
+        try {
+            driver.findElement(By.xpath("//div[@data-component='sticky-footer']//button/span[text()='Next']")).click();
+        } catch (Exception e){
+            click(driver.findElement(By.xpath("//div[@data-component='sticky-footer']//button/span[text()='Next']")));
+        }
     }
 
     public void clickOnPublishBtn() {

@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
         landingPage.openWebsite();
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginBtnDisplayed());
-        loginPage.enterEmail(ConfigReader.getConfigValue("email"));
+        loginPage.enterEmail(ConfigReader.getConfigValue("userEmail"));
         loginPage.clickOnLoginBtn();
         loginPage.enterPassword(ConfigReader.getConfigValue("password"));
         loginPage.clickOnContinue();

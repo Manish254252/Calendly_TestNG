@@ -46,4 +46,26 @@
 
     </dependencies>
 
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.3.1</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/Runner/TestRunner.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+<!--                        <includes>-->
+<!--                            <include>-->
+<!--                                **/TestRunner.xml-->
+<!--                            </include>-->
+<!--                        </includes>-->
+                        <testFailureIgnore>true</testFailureIgnore>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+
 </project>

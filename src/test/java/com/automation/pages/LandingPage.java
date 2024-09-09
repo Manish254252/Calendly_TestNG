@@ -8,17 +8,27 @@ public class LandingPage extends BasePage {
     @FindBy(xpath = "//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']")
     WebElement loginLink;
 
+    @FindBy(xpath = "//ul[@id='right-side-components']//span[text()='Get started']")
+    WebElement getStartedBtn;
+
+    @FindBy(xpath = "//img[@alt='Calendly logo']")
+    WebElement logoImg;
+
     public void openWebsite() {
         driver.get("https://calendly.com/");
     }
 
     public void clickOnLoginLink() {
-        loginLink = driver.findElement(By.xpath("//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']"));
-        waitUntilElementVisible( loginLink);
-        loginLink.click();
+        try{
+            loginLink = driver.findElement(By.xpath("//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']"));
+            waitUntilElementVisible( loginLink);
+            loginLink.click();
+        }catch (Exception e){
+            driver.findElement(By.xpath("//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']")).click();
+        }
     }
 
     public boolean isLandingPageDisplayed() {
-        return loginLink.isDisplayed();
+        return logoImg.isDisplayed() && getStartedBtn.isDisplayed();
     }
 }

@@ -4,7 +4,7 @@ import com.automation.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RoutingTest extends BaseTest {
+public class CreateRoutingTest extends BaseTest {
 
     @Test
     public void createRouting(){
