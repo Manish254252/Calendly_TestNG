@@ -4,9 +4,8 @@
         <listener class-name="com.automation.listener.ExtentListener"/>
     </listeners>
     <test name="Abc">
-        <classes>
-            <class name="com.automation.test.HomePageTest"/>
-
-        </classes>
+        <packages>
+            <package name="com.automation.test"/>
+        </packages>
     </test>
 </suite>

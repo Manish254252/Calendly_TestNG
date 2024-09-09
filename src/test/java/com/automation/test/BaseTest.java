@@ -1,7 +1,7 @@
 package com.automation.test;
 
 
-import com.automation.pages.HomePage;
+import com.automation.pages.*;
 
 import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
@@ -20,27 +20,41 @@ import java.util.Random;
 
 public class BaseTest {
 
-
     HomePage homePage;
-
-
+    LoginPage loginPage;
+    LandingPage landingPage;
+    RoutingPage routingPage;
+    ContactPage contactPage;
+    NewEventPage newEventPage;
+    InvitePage invitePage;
+    MeetingsPage meetingsPage;
+    ProfilePage profilePage;
+    AvailabilityPage availabilityPage;
+    HolidaysPage holidaysPage;
+    EventSchedulePage eventSchedulePage;
 
     @BeforeMethod
     public void setUp(ITestContext context) {
-
-
         ConfigReader.initConfig();
         DriverManager.createDriver();
 
         homePage = new HomePage();
-
-
+        loginPage = new LoginPage();
+        landingPage = new LandingPage();
+        routingPage = new RoutingPage();
+        contactPage = new ContactPage();
+        newEventPage = new NewEventPage();
+        invitePage = new InvitePage();
+        meetingsPage = new MeetingsPage();
+        profilePage = new ProfilePage();
+        availabilityPage = new AvailabilityPage();
+        holidaysPage = new HolidaysPage();
+        eventSchedulePage = new EventSchedulePage();
     }
 
     @AfterMethod
     public void cleanUp() {
         DriverManager.getDriver().quit();
-
     }
 
     public void takeScreenShot() {
