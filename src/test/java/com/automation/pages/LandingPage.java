@@ -29,6 +29,8 @@ public class LandingPage extends BasePage {
     }
 
     public boolean isLandingPageDisplayed() {
+        WebElement logoImg = driver.findElement(By.xpath("//img[@alt='Calendly logo']"));
+        WebElement getStartedBtn= driver.findElement((By.xpath("//ul[@id='right-side-components']//span[text()='Get started']")));
         return logoImg.isDisplayed() && getStartedBtn.isDisplayed();
     }
 }

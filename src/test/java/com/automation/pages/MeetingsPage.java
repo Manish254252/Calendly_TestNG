@@ -123,10 +123,12 @@ boolean isMeetingCanceled=false;
     public boolean isMeetingPresent(String meetingName, String eventScheduleName) {
         System.out.println("Passed meeting name: "+meetingName);
         System.out.println("Passed event name: "+eventScheduleName);
+        System.out.println(meetingNames.size());
         for(int i = 0; i < meetingNames.size(); i++){
             System.out.println("meet: "+meetingNames.get(i).getText());
             System.out.println("event: "+eventNames.get(i).getText());
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
+                System.out.println();
                 return true;
             }
         }

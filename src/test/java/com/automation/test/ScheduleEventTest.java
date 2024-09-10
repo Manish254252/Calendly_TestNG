@@ -17,7 +17,7 @@ public class ScheduleEventTest extends BaseTest{
         loginPage.clickOnContinue();
         Assert.assertTrue(homePage.isHomePageDisplayed());
 
-        homePage.clickOnBookingEventLink(ConfigReader.getConfigValue("newEvent.name"), ConfigReader.getConfigValue("newEvent.duration"));
+        homePage.clickOnBookingEventLink(ConfigReader.getConfigValue("newEvent.name"), ConfigReader.getConfigValue("newEvent.duration"),  ConfigReader.getConfigValue("eventType.one"));
         homePage.switchTab();
         Assert.assertTrue(eventSchedulePage.isEventSchedulePageDisplayed());
         eventSchedulePage.selectDate(ConfigReader.getConfigValue("eventSchedule.date"));
@@ -37,6 +37,27 @@ public class ScheduleEventTest extends BaseTest{
         loginPage.enterPassword(ConfigReader.getConfigValue("password"));
         loginPage.clickOnContinue();
         Assert.assertTrue(homePage.isHomePageDisplayed());
+
+//        homePage.clickOnNewEventTypeButton();
+//        Assert.assertTrue(newEventPage.isEventPageDisplayed());
+//
+//        newEventPage.clickOnTheEventType(ConfigReader.getConfigValue("eventType.one"));
+//        newEventPage.clickOnNextButton();
+//        newEventPage.enterEventNameAndDuration(ConfigReader.getConfigValue("delete.eventScheduleName"), ConfigReader.getConfigValue("newEvent.duration"));
+//        newEventPage.clickContinueButton();
+//        Assert.assertTrue(newEventPage.isEventReadyMsgIsDisplayed());
+//        newEventPage.clickDoneButton();
+        Assert.assertTrue(homePage.isEventListedOnHomePage(ConfigReader.getConfigValue("newEvent.name"), ConfigReader.getConfigValue("newEvent.duration")));
+
+        homePage.clickOnBookingEventLink(ConfigReader.getConfigValue("delete.eventScheduleName"), ConfigReader.getConfigValue("newEvent.duration"), ConfigReader.getConfigValue("eventType.one"));
+        eventSchedulePage.switchTab();
+        Assert.assertTrue(eventSchedulePage.isEventSchedulePageDisplayed());
+        eventSchedulePage.selectDate(ConfigReader.getConfigValue("eventSchedule.date"));
+        eventSchedulePage.selectTime();
+        eventSchedulePage.enterEventNameAndMsg(ConfigReader.getConfigValue("eventSchedule.name"),ConfigReader.getConfigValue("eventSchedule.email") ,ConfigReader.getConfigValue("eventSchedule.Msg"));
+        eventSchedulePage.clickScheduleButton();
+        Assert.assertTrue(eventSchedulePage.isEventScheduled());
+        eventSchedulePage.switchTab();
 
         homePage.clickOnMeetingLink();
         Assert.assertTrue(meetingsPage.isMeetingsPageDisplayed());

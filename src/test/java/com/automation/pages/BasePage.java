@@ -70,7 +70,6 @@ public class BasePage {
         } else {
             driver.switchTo().window(windowIds.get(0));
         }
-
     }
 
     public String getRandomEmail() {

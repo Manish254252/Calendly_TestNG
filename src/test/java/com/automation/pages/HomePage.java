@@ -20,6 +20,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-component='sortable']//p")
     List<WebElement> eventDurationList;
 
+    @FindBy(xpath = "//div[@data-component='sortable']//div//p[text()='One-on-One']")
+    List<WebElement> eventTypeList;
+
     @FindBy(xpath = "//div[@data-component='sortable']//div/a")
     List<WebElement> eventBookingPageLink;
 
@@ -43,6 +46,8 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//div[@id='main-user-menu']//div/a/div[contains(text(),'Profile')]")
     WebElement profileLink;
+
+
 
     static int noOfEventsBeforeDeletion;
     static int noOfEventsAfterDeletion;
@@ -118,14 +123,15 @@ public class HomePage extends BasePage {
     }
 
     public boolean isEventDeleted(String eventName) {
-
         return eventsDeleted;
 
     }
 
-    public void clickOnBookingEventLink(String eventName, String eventDuration) {
-        for (int i = 0; i < eventBookingPageLink.size(); i++) {
-            if (eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)) {
+    public void clickOnBookingEventLink(String eventName, String eventDuration, String eventType) {
+        for (int i = 0; i < eventTypeList.size(); i++) {
+            if (eventNamesList.get(i).getText().equals(eventName) && eventTypeList.get(i).getText().contains(eventType)) {
+                System.out.println("Clicked on "+ eventName+ " " + eventDuration +  " "+eventType);
+                System.out.println(eventNamesList.get(i).getText()+ " "+ eventTypeList.get(i).getText());
                 eventBookingPageLink.get(i).click();
                 break;
             }
